@@ -18,14 +18,13 @@ Features
 - Article grading system
 - Article extension
 - Unit tests
+- Expired ads deletion (Cron/Laravel Scheduler)
 
 Planned features
 --------------
 
 - Full OAuth2 support
 - Ad view counter
-
-
 
 
 
@@ -38,7 +37,14 @@ When running the API rewert to permanent database and adjust database settings a
 
 ## Running the API
 
-It's very simple to get the API up and running. First, create the database (and database
+Add the following Cron entry to your server, to start a scheduler
+`crontab -e`
+
+`* * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1`
+
+It's very simple to get the API up and running.
+
+First, create the database (and database
 user if necessary) and add them to the `.env` file.
 
 ```
