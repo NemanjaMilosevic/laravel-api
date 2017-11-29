@@ -25,11 +25,18 @@ class AdController extends Controller
     }
     public function update(Request $request, Ad $article)
     {
+		$current_time = Carbon::now(); 		
+		if ($current_time >= $article->expire_on ) return response()->json('Cant update expired ad',403);
+		
         $article->update($request->all());
         return response()->json($article);
     }
     public function delete(Ad $article)
     {
+		$current_time = Carbon::now(); 
+
+		if ($current_time >= $article->expire_on ) return response()->json('Cant delete expired ad',403);
+
         $article->delete();
         return response()->json(null, 204);
     }
@@ -47,11 +54,6 @@ class AdController extends Controller
     }
 	
 
-
-
-	
-
-
 	public function rate(Request $request, Ad $ad)
     {
 		$user = $request->user();
@@ -60,10 +62,12 @@ class AdController extends Controller
 			return response()->json('Auth error',401);		
 		}
 
+		$current_time = Carbon::now(); 
+		if ($current_time >= $article->expire_on ) return response()->json('Cant extend expired ad',403);		
 
 		$rating = new \willvincent\Rateable\Rating;
 		$rating->rating = $request->input('rating');
-		$rating->user_id = $request->user();// 2;//\Auth::id();
+		$rating->user_id = $request->user();
 		$ad->ratings()->save($rating);
 
 

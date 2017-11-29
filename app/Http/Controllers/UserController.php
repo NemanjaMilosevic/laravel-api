@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index(){
+    public function index()
+	{
+
 		return User::all(); 
 
 	}
@@ -15,9 +17,9 @@ class UserController extends Controller
     {
         return $user;
     }
+
 	public function delete()
 	{
-
 		$user = Auth::user(); 
 		Auth::logout();
 		$user->active = 0;
