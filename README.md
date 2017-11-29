@@ -1,7 +1,7 @@
 Opinodo Laravel API
 ===================================
 This sample demonstrates Laravel RESTful API.
-Demonstration of REST Api functions with creating functional test that user the REST Layer directly.
+Demonstration of REST Api functions with creating functional test that use the REST Layer directly.
 
 
 Documentation
@@ -33,7 +33,7 @@ Planned features
 
 Note: Current set up uses PHPUnit tests and in-memory SQLite database for performant runs.
 
-When running the API rewert to permanent database and adjust database settings accordingly.
+When running the API revert to permanent database and adjust database settings accordingly.
 
 ## Running the API
 
