@@ -1,4 +1,4 @@
-Opinodo Laravel API
+Laravel API
 ===================================
 This sample demonstrates Laravel RESTful API.
 Demonstration of REST Api functions with creating functional test that use the REST Layer directly.
