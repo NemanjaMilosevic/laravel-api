@@ -52,6 +52,7 @@ class RegisterController extends Controller
 	protected function registered(Request $request, $user)
     {
         $user->generateToken();
+
         return response()->json(['data' => $user->toArray()], 201);
     }
 
@@ -86,7 +87,9 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
 
         ]);
+         
 		$user->roles()->attach(Role::where('name', $data['role'])->first());
+
 	    return $user;
 
     }

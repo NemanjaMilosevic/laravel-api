@@ -38,7 +38,6 @@ class UserTableSeeder extends Seeder
                 'role' => 'producer',
 			]);
 
-			
-        }
+		}
     }
 }

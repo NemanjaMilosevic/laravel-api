@@ -6,7 +6,7 @@ Demonstration of REST Api functions with creating functional test that use the R
 
 Documentation
 ------------
-Please consult doc/spec.pdf for api specification.
+Please consult doc/spec.pdf for API specification.
 
 
 Features
@@ -53,7 +53,7 @@ DB_USERNAME=your_db_user
 DB_PASSWORD=your_password
 ```
 
-Then install, migrate, seed, all that jazz:
+Then install, migrate, seed:
 
 1. `composer install`
 2. `php artisan migrate`

@@ -10,16 +10,16 @@ class RoleTableSeeder extends Seeder
      *
      * @return void
      */
-   public function run()
-  {
-    $role_employee = new Role();
-    $role_employee->name = 'producer';
-    $role_employee->description = 'A Producer User';
-    $role_employee->save();
+    public function run()
+    {
+        $role_employee = new Role();
+        $role_employee->name = 'producer';
+        $role_employee->description = 'A Producer User';
+        $role_employee->save();
 
-    $role_manager = new Role();
-    $role_manager->name = 'customer';
-    $role_manager->description = 'A Customer User';
-    $role_manager->save();
-  }
+        $role_manager = new Role();
+        $role_manager->name = 'customer';
+        $role_manager->description = 'A Customer User';
+        $role_manager->save();
+    }
 }

@@ -18,29 +18,27 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//AUTH routes
 Route::post('logout', 'Auth\LoginController@logout');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('register', 'Auth\RegisterController@register');
 
 
 
-
-
-
 Route::group(['middleware' => 'auth:api'], function() {
 
+	Route::get('ads', 'AdController@index');
+	Route::get('ads/{ad}', 'AdController@show');
+	Route::post('ads', 'AdController@store');
+	Route::put('ads/{ad}', 'AdController@update');
+	Route::delete('ads/{ad}', 'AdController@delete');
 
-Route::get('ads', 'AdController@index');
-Route::get('ads/{ad}', 'AdController@show');
-Route::post('ads', 'AdController@store');
-Route::put('ads/{ad}', 'AdController@update');
-Route::delete('ads/{ad}', 'AdController@delete');
-Route::put('ads/{ad}/rate', 'AdController@rate');
-Route::put('ads/{ad}/extend', 'AdController@extend');
+	Route::put('ads/{ad}/rate', 'AdController@rate');
+	Route::put('ads/{ad}/extend', 'AdController@extend');
 
 
-Route::delete('account', 'UserController@delete');
-Route::get('users/all', 'UserController@index');
-Route::get('users/{user}', 'UserController@show');
+	Route::delete('account', 'UserController@delete');
+	Route::get('users/all', 'UserController@index');
+	Route::get('users/{user}', 'UserController@show');
 
 });
